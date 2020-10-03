@@ -77,6 +77,6 @@ public class PostController {
 	@ResponseBody public ResponseEntity<String> addComment(@RequestBody CommentRequest newComment)
 	{
 		String title = service.addComments(newComment.getId(), newComment.getComment());
-		return new ResponseEntity<String>("Comment added to "+title+" post.", HttpStatus.ACCEPTED);
+		return new ResponseEntity<String>("{ \"value\":\"Comment added to "+title+" post.\" }", HttpStatus.ACCEPTED);
 	}
 }
