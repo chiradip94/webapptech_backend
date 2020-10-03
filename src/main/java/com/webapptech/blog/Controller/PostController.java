@@ -73,7 +73,7 @@ public class PostController {
 	}
 	
 	@PutMapping("/post/comment")
-	public ResponseEntity<String> addComment(@RequestBody CommentRequest newComment)
+	@ResponseBody public ResponseEntity<String> addComment(@RequestBody CommentRequest newComment)
 	{
 		String title = service.addComments(newComment.getId(), newComment.getComment());
 		return new ResponseEntity<String>("Comment added to "+title+" post.", HttpStatus.ACCEPTED);
