@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.webapptech.blog.DTO.CommentRequest;
 import com.webapptech.blog.Model.Post;
@@ -73,7 +74,7 @@ public class PostController {
 	}
 	
 	@PutMapping("/post/comment")
-	public ResponseEntity<String> addComment(@RequestBody CommentRequest newComment)
+	@ResponseBody public ResponseEntity<String> addComment(@RequestBody CommentRequest newComment)
 	{
 		String title = service.addComments(newComment.getId(), newComment.getComment());
 		return new ResponseEntity<String>("Comment added to "+title+" post.", HttpStatus.ACCEPTED);
